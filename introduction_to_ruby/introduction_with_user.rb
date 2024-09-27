@@ -22,3 +22,9 @@ else
     puts "Любой язык хорош, если в нем писать хороший код!"
   end
 end
+
+puts "Введите команду языка Ruby:"
+eval(STDIN.gets.chomp)
+puts "Введите команду операционной системы:"
+system(STDIN.gets.chomp)
+
