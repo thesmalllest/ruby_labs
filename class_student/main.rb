@@ -16,15 +16,19 @@ student_data_2 = {
  surname: 'Вознесенский',
  name: 'Андрей',
  patronymic: 'Андреевич',
- phone: '9876543210'
+ phone: '88765432144'
 }
 
-student_1 = Student.new(student_data_1)
+begin
+ student1 = Student.new(student_data_1)
+ puts "Студент 1 создан успешно: #{student1}"
+rescue ArgumentError => e
+ puts "Ошибка при создании студента 1: #{e.message}"
+end
 
-puts "Информация о студенте 1:"
-puts student_1.to_s
-
-student_2 = Student.new(student_data_2)
-
-puts "\nИнформация о студенте 2:"
-puts student_2.to_s
+begin
+ student2 = Student.new(student_data_2)
+ puts "Студент 2 создан успешно: #{student2}"
+rescue ArgumentError => e
+ puts "Ошибка при создании студента 2: #{e.message}"
+end
