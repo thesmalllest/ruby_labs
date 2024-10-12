@@ -82,8 +82,4 @@ def self.has_contact?(student_data)
  student_data.key?(:git) && Student.valid_git?(student_data[:git]) && has_contact?(student_data)
  end
 
- def self.validate(student_data)
- raise ArgumentError, "Отсутствует имя пользователя Git или контакт для связи" unless has_git_and_contact?(student_data)
- end
-
 end
