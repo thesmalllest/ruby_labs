@@ -23,10 +23,14 @@ class Student
   true
  end
  
+
  def self.valid_phone?(phone)
   return false unless phone.is_a?(String)
   phone.match?(/^(?:\+7|8)\d{10}$/)
  end
+ return false unless phone.is_a?(String)
+ phone.match?(/^(?:\+7|8)\d{10}$/) 
+end
 
  def self.valid_telegram?(telegram)
   return false unless telegram.is_a?(String)
@@ -45,11 +49,41 @@ class Student
 
  private
 
- def validate_data(student_data)
-  raise ArgumentError, "Некорректное ФИО" unless Student.valid_fio?(student_data[:surname], student_data[:name], student_data[:patronymic]) 
-  raise ArgumentError, "Некорректный номер телефона" if student_data.key?(:phone) && !Student.valid_phone?(student_data[:phone])
-  raise ArgumentError, "Некорректное имя пользователя Telegram" if student_data.key?(:telegram) && !Student.valid_telegram?(student_data[:telegram])
-  raise ArgumentError, "Некорректный email" if student_data.key?(:email) && !Student.valid_email?(student_data[:email]) 
-  raise ArgumentError, "Некорректное имя пользователя Git" if student_data.key?(:git) && !Student.valid_git?(student_data[:git])
+def validate_data(student_data)
+ raise ArgumentError, "Некорректный номер телефона" if student_data.key?(:phone) && !Student.valid_phone?(student_data[:phone])
+ raise ArgumentError, "Некорректное имя пользователя Telegram" if student_data.key?(:telegram) && !Student.valid_telegram?(student_data[:telegram])
+ raise ArgumentError, "Некорректный email" if student_data.key?(:email) && !Student.valid_email?(student_data[:email])
+ raise ArgumentError, "Некорректное ФИО" unless Student.valid_fio?(student_data[:surname], student_data[:name], student_data[:patronymic])
+ raise ArgumentError, "Некорректное имя пользователя Git" if student_data.key?(:git) && !Student.valid_git?(student_data[:git])
+
+ if !student_data.key?(:git) && !Student.has_contact?(student_data) 
+  raise ArgumentError, "Отсутствуют имя пользователя Git и контакт для связи" 
+ elsif !student_data.key?(:git)
+  raise ArgumentError, "Отсутствует имя пользователя Git"
+ elsif !Student.has_contact?(student_data)
+  raise ArgumentError, "Отсутствует контакт для связи"
+ else
+  true
  end
+end
+
+def self.has_contact?(student_data)
+  if student_data.key?(:phone) && Student.valid_phone?(student_data[:phone]) 
+   return true
+  elsif student_data.key?(:telegram) && Student.valid_telegram?(student_data[:telegram])
+   return true
+  elsif student_data.key?(:email) && Student.valid_email?(student_data[:email])
+   return true
+  end
+  false
+ end
+
+ def self.has_git_and_contact?(student_data)
+ student_data.key?(:git) && Student.valid_git?(student_data[:git]) && has_contact?(student_data)
+ end
+
+ def self.validate(student_data)
+ raise ArgumentError, "Отсутствует имя пользователя Git или контакт для связи" unless has_git_and_contact?(student_data)
+ end
+
 end
