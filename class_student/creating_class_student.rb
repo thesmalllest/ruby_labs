@@ -1,6 +1,7 @@
 class Student
  attr_accessor :id, :surname, :name, :patronymic, :phone, :telegram, :email, :git
-
+ attr_writer :phone, :telegram, :email, :git
+ 
  def initialize(student_data)
   validate_data(student_data)
   @id = student_data[:id]
@@ -17,19 +18,22 @@ class Student
   "ID: #{@id}: ФИО: #{@surname} #{@name} #{@patronymic} Телефон: #{@phone} Telegram: #{@telegram} Email: #{@email} Git: #{@git}"
  end
 
+ def set_contacts(contacts)
+   validate_contacts(contacts) 
+   contacts.each do |key, value|
+     send("#{key}=", value) if [:phone, :telegram, :email, :git].include?(key)
+   end
+ end
+
  def self.valid_fio?(surname, name, patronymic)
   return false unless surname.is_a?(String) && name.is_a?(String) && patronymic.is_a?(String)
   return false unless surname.match?(/^[А-Яа-я]+$/) && name.match?(/^[А-Яа-я]+$/) && patronymic.match?(/^[А-Яа-я]+$/)
   true
  end
- 
 
- def self.valid_phone?(phone)
+def self.valid_phone?(phone)
   return false unless phone.is_a?(String)
   phone.match?(/^(?:\+7|8)\d{10}$/)
- end
- return false unless phone.is_a?(String)
- phone.match?(/^(?:\+7|8)\d{10}$/) 
 end
 
  def self.valid_telegram?(telegram)
@@ -65,6 +69,13 @@ def validate_data(student_data)
  else
   true
  end
+end
+
+ def validate_contacts(contacts)
+    raise ArgumentError, "Некорректный номер телефона" if contacts.key?(:phone) && !Student.valid_phone?(contacts[:phone])
+    raise ArgumentError, "Некорректное имя пользователя Telegram" if contacts.key?(:telegram) && !Student.valid_telegram?(contacts[:telegram])
+    raise ArgumentError, "Некорректный email" if contacts.key?(:email) && !Student.valid_email?(contacts[:email])
+    raise ArgumentError, "Некорректное имя пользователя Git" if contacts.key?(:git) && !Student.valid_git?(contacts[:git])
 end
 
 def self.has_contact?(student_data)
