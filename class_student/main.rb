@@ -5,7 +5,7 @@ student_data_1 = {
  surname: 'Есенин',
  name: 'Сергей',
  patronymic: 'Александрович',
- phone: '1234567890',
+ phone: '+79123456789',
  telegram: 'sergey_esenin',
  email: 'sergey.esenin@example.com',
  git: 'eseninss'
@@ -44,7 +44,7 @@ student_data_4 = {
 
 begin
  student_1 = Student.new(student_data_1)
- puts "Студент 1 создан успешно: #{student1}"
+ puts "Студент 1 создан успешно: #{student_1}"
 rescue ArgumentError => e
  puts "Ошибка при создании студента 1: #{e.message}"
 end
@@ -68,4 +68,9 @@ begin
  puts "Студент 4 создан успешно: #{student_4}"
 rescue ArgumentError => e
  puts "Ошибка при создании студента 4: #{e.message}"
+end
+
+if student_1
+  student_1.set_contacts(phone: '+79111234567', telegram: 'new_sergey_esenin')
+  puts "Обновленные данные студента 1: #{student_1}"
 end
