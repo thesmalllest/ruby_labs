@@ -1,14 +1,14 @@
 require_relative 'creating_class_student'
 
 student_data_1 = {
- id: 1,
- surname: 'Есенин',
- name: 'Сергей',
- patronymic: 'Александрович',
- phone: '1234567890',
- telegram: 'sergey_esenin',
- email: 'sergey.esenin@example.com',
- git: 'eseninss'
+  id: 1,
+  surname: 'Есенин',
+  name: 'Сергей',
+  patronymic: 'Александрович',
+  phone: '+79123456789', 
+  telegram: 'sergey_esenin',
+  email: 'sergey.esenin@example.com',
+  git: 'eseninss'
 }
 
 student_data_2 = {
@@ -68,4 +68,8 @@ begin
  puts "Студент 4 создан успешно: #{student_4}"
 rescue ArgumentError => e
  puts "Ошибка при создании студента 4: #{e.message}"
+
+if student_1
+  student_1.set_contacts(phone: '+79111234567', telegram: 'new_sergey_esenin')
+  puts "Обновленные данные студента 1: #{student_1}"
 end

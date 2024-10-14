@@ -1,5 +1,5 @@
 class Student
- attr_accessor :id, :surname, :name, :patronymic, :phone, :telegram, :email, :git
+ attr_accessor :id, :surname, :name, :patronymic
 
  def initialize(student_data)
   validate_data(student_data)
@@ -16,6 +16,12 @@ class Student
  def to_s
   "ID: #{@id}: ФИО: #{@surname} #{@name} #{@patronymic} Телефон: #{@phone} Telegram: #{@telegram} Email: #{@email} Git: #{@git}"
  end
+
+  def set_contacts(contacts)
+    validate_contacts(contacts) 
+      send("#{key}=", value) if [:phone, :telegram, :email, :git].include?(key)
+    end
+  end
 
  def self.valid_fio?(surname, name, patronymic)
   return false unless surname.is_a?(String) && name.is_a?(String) && patronymic.is_a?(String)
@@ -67,6 +73,9 @@ def validate_data(student_data)
  end
 end
 
+def validate_contacts(contacts)
+    raise ArgumentError, "Некорректный номер телефона" if contacts.key?(:phone) && !Student.valid_phone?(contacts[:phone])
+
 def self.has_contact?(student_data)
   if student_data.key?(:phone) && Student.valid_phone?(student_data[:phone]) 
    return true
@@ -80,10 +89,6 @@ def self.has_contact?(student_data)
 
  def self.has_git_and_contact?(student_data)
  student_data.key?(:git) && Student.valid_git?(student_data[:git]) && has_contact?(student_data)
- end
-
- def self.validate(student_data)
- raise ArgumentError, "Отсутствует имя пользователя Git или контакт для связи" unless has_git_and_contact?(student_data)
  end
 
 end
