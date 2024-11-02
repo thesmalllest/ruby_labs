@@ -22,7 +22,7 @@ class Student
 		@name
 	end
 
-	def patronyumic
+	def patronymic
 		@patronymic
 	end
 
@@ -48,40 +48,40 @@ class Student
 
 	#setters
 
-	def surname = (new_surname)
+	def surname=(new_surname)
 		@surname = new_surname
 	end
 
-	def name = (new_name)
+	def name=(new_name)
 		@name = new_name
 	end
 
-	def patronymic = (new_patronymic)
+	def patronymic=(new_patronymic)
 		@patronymic = new_patronymic
 	end
 
-	def id
-		@id
+	def id=(new_id)
+		@id = new_id
 	end
 
-	def phone = (new_phone)
+	def phone=(new_phone)
 		@phone = new_phone
 	end
 
-	def telegram = (new_telegram)
+	def telegram=(new_telegram)
 		@telegram = new_telegram
 	end
 
-	def email = (new_email)
+	def email=(new_email)
 		@email = new_email
 	end
 
-	def git = (new_git)
+	def git=(new_git)
 		@git = new_git
 	end
 
 	def to_s
-		"ID: #{@id}, ФИО: #{@name} #{@surname} #{@patronymic}, Телефон: #{@phone}, Telegram: #{@telegram}, Email: #{@email}, Git: #{@git}"
+		"ID: #{id}, ФИО: #{name} #{surname} #{patronymic}, Телефон: #{phone}, Telegram: #{telegram}, Email: #{email}, Git: #{git}"
 	end
 
 end
