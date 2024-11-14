@@ -11,6 +11,6 @@ student_1 = Student.new({
   git: "eseninss"
 })
 
-
+student_1.validate
 puts "Информация о студенте 1:"
 puts student_1

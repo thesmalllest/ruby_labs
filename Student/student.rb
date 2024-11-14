@@ -53,7 +53,9 @@ class Student
   end
 
   def phone=(phone)
-  	raise ArgumentError, "Некорректный номер телефона" if !Student.valid_phone?(phone)
+  	if !phone.nil? && !Student.valid_phone?(phone)
+  	  raise ArgumentError, "Некорректный номер телефона"
+    end
   	@phone=phone
   end
 
@@ -62,7 +64,9 @@ class Student
   end
 
   def telegram=(telegram)
-  	raise ArgumentError, "Некорректно введен Telegram" if !Student.valid_telegram?(telegram)
+  	if !telegram.nil? && !Student.valid_telegram?(telegram)
+  	  raise ArgumentError, "Некорректно введен Telegram"
+    end
   	@telegram=telegram
   end
 
@@ -71,17 +75,35 @@ class Student
   end
 
   def email=(email)
-  	raise ArgumentError, "Некорректно введен Email" if !Student.valid_email?(email)
+  	if !email.nil? && !Student.valid_email?(email)
+  	  raise ArgumentError, "Некорректно введен Email" 
+  	end
   	@email=email
   end
 
   def self.valid_git?(git)
   	git.match(/\A[A-Za-z0-9_]+\z/)
   end
-
+  
+  #Только если git не является nil, будет выполняться проверка valid_git?.
   def git=(git)
-  	raise ArgumentError, "Некорректно введен Git" if !Student.valid_git?(git)
-  	@git=git
+	if !git.nil? && !Student.valid_git?(git)
+	  raise ArgumentError, "Некорректно введен Git"
+	end
+	@git = git
+  end
+
+  def has_git?
+  	!git.nil?
+  end
+
+  def has_contact?
+  	!phone.nil? || !email.nil? || !telegram.nil?
+  end
+
+  def validate
+  	raise ArgumentError, "Отсутствует Git" unless has_git?
+  	raise ArgumentError, "Отсутствует контакт для связи" unless has_contact?
   end
 
   def to_s
