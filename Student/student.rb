@@ -6,10 +6,8 @@ class Student
     self.name = student_data[:name]
     self.patronymic = student_data[:patronymic]
     self.id = student_data[:id]
-    self.phone = student_data[:phone]
-    self.telegram = student_data[:telegram]
-    self.email = student_data[:email]
     self.git = student_data[:git]
+    set_contacts(phone: student_data[:phone], telegram: student_data[:telegram], email: student_data[:email])
   end
 
   def self.valid_surname?(surname)
@@ -82,7 +80,7 @@ class Student
   end
 
   def self.valid_git?(git)
-  	git.match(/\A[A-Za-z0-9_]+\z/)
+  	git.match?(/\Ahttps:\/\/github\.com\/[a-zA-Z0-9\-]+\z/)
   end
   
   #Только если git не является nil, будет выполняться проверка valid_git?.
@@ -104,6 +102,22 @@ class Student
   def validate
   	raise ArgumentError, "Отсутствует Git" unless has_git?
   	raise ArgumentError, "Отсутствует контакт для связи" unless has_contact?
+  end
+
+  def set_contacts(phone: nil, telegram: nil, email: nil)
+    if phone && !Student.valid_phone?(phone)
+      raise ArgumentError, "Некорректный номер телефона"
+    end
+    if telegram && !Student.valid_telegram?(telegram)
+      raise ArgumentError, "Некорректно введен Telegram"
+    end
+    if email && !Student.valid_email?(email)
+      raise ArgumentError, "Некорректно введен Email"
+    end
+
+    @phone = phone
+    @telegram = telegram
+    @email = email
   end
 
   def to_s
