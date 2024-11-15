@@ -16,4 +16,7 @@ student_1.set_contacts(
 
 student_1.validate
 puts "Информация о студенте 1:"
-puts student_1
+puts student_1puts student_1
+
+puts "Краткая информация о студенте 1:"
+puts student_1.getInfo

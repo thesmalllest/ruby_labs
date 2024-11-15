@@ -124,4 +124,23 @@ class Student
     "ID: #{id}, ФИО: #{surname} #{name} #{patronymic}, Телефон: #{phone}, Telegram: #{telegram}, Email: #{email}, Git: #{git}"
   end
 
+  def surname_with_initials
+    "#{surname} #{name[0]}.#{patronymic[0]}."
+  end
+
+  def primary_contact
+    if !phone.nil?
+      "Телефон: #{phone}"
+    elsif !telegram.nil?
+      "Telegram: #{telegram}"
+    else !email.nil?
+      "Email: #{email}"
+    end
+  end
+
+  # Основной метод getInfo
+  def getInfo
+    "#{surname_with_initials}; GitHub: #{git}; #{primary_contact}"
+  end
+
 end
