@@ -1,12 +1,12 @@
 require_relative 'student'
 
-student_1 = Student.new({
+student_1 = Student.new(
   surname: "Есенин",
   name: "Сергей",
   patronymic: "Александрович",
   id: 1,
   git: "https://github.com/eseninss"
-})
+)
 
 student_1.set_contacts(
   phone: "+79231233242",
@@ -15,8 +15,8 @@ student_1.set_contacts(
 )
 
 student_1.validate
-puts "Информация о студенте 1:"
-puts student_1puts student_1
+puts "Информация о студенте #{student_1.id}:"
+puts student_1
 
-puts "Краткая информация о студенте 1:"
+puts "Краткая информация о студенте #{student_1.id}:"
 puts student_1.getInfo

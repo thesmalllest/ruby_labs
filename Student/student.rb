@@ -1,13 +1,13 @@
 class Student
   attr_reader :surname, :name, :patronymic, :id, :phone, :telegram, :email, :git
 
-  def initialize(student_data = {surname:, name:, patronymic:, id: nil, phone: nil, telegram: nil, email: nil, git: nil})
-    self.surname = student_data[:surname]
-    self.name = student_data[:name]
-    self.patronymic = student_data[:patronymic]
-    self.id = student_data[:id]
-    self.git = student_data[:git]
-    set_contacts(phone: student_data[:phone], telegram: student_data[:telegram], email: student_data[:email])
+  def initialize(surname:, name:, patronymic:, id: nil, phone: nil, telegram: nil, email: nil, git: nil)
+    self.surname = surname
+    self.name = name
+    self.patronymic = patronymic
+    self.id = id
+    self.git = git
+    set_contacts(phone: phone, telegram: telegram, email: email)
   end
 
   def self.valid_surname?(surname)
@@ -83,7 +83,6 @@ class Student
   	git.match?(/\Ahttps:\/\/github\.com\/[a-zA-Z0-9\-]+\z/)
   end
   
-  #Только если git не является nil, будет выполняться проверка valid_git?.
   def git=(git)
 	if !git.nil? && !Student.valid_git?(git)
 	  raise ArgumentError, "Некорректно введен Git"
@@ -100,8 +99,7 @@ class Student
   end
 
   def validate
-  	raise ArgumentError, "Отсутствует Git" unless has_git?
-  	raise ArgumentError, "Отсутствует контакт для связи" unless has_contact?
+  	has_git? && has_contact?
   end
 
   def set_contacts(phone: nil, telegram: nil, email: nil)
@@ -144,3 +142,4 @@ class Student
   end
 
 end
+
