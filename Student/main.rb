@@ -1,4 +1,5 @@
 require_relative 'student'
+require_relative 'student_short'
 
 student_1 = Student.new(
   surname: "Есенин",
@@ -19,4 +20,5 @@ puts "Информация о студенте #{student_1.id}:"
 puts student_1
 
 puts "Краткая информация о студенте #{student_1.id}:"
-puts student_1.getInfo
+puts student_short_from_student = StudentShort.initialize_from_student(student_1)
+
