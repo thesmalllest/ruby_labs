@@ -9,7 +9,7 @@ class StudentShort < Person
     super(id: id, git: git)
   end
 
-  def self.initialize_from_student(student)
+  def self.from_student(student)
    new(student.surname_with_initials, id: student.id, git: student.git, contact: student.primary_contact)
   end
 
