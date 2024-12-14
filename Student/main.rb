@@ -19,6 +19,9 @@ student_1.validate
 puts "Информация о студенте #{student_1.id}:"
 puts student_1
 
+
+
 puts "Краткая информация о студенте #{student_1.id}:"
 puts student_short_from_student = StudentShort.initialize_from_student(student_1)
+puts student_short_from_string = StudentShort.parse_info(3, student_1.getInfo)
 

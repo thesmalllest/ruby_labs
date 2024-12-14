@@ -13,12 +13,12 @@ class StudentShort < Person
    new(student.surname_with_initials, id: student.id, git: student.git, contact: student.primary_contact)
   end
 
-  def parse_info(id, info_str)
+  def self.parse_info(id, info_str)
     info = info_str.split(", ")
     initials = info[0]
     git = info[1]
     contact = info[2]
-    new(surname_initials, id: id, git: git, contact: contact)
+    new(initials, id: id, git: git, contact: contact)
   end
 
   def to_s

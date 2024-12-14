@@ -115,7 +115,7 @@ class Student < Person
 
   # Основной метод getInfo
   def getInfo
-    "#{surname_with_initials}; GitHub: #{git}; #{primary_contact}"
+    "#{surname_with_initials}, #{git}, #{primary_contact}"
   end
 
 end
