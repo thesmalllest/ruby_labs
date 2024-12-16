@@ -13,7 +13,7 @@ class StudentShort < Person
    new(student.surname_with_initials, id: student.id, git: student.git, contact: student.primary_contact)
   end
 
-  def self.parse_info(id, info_str)
+  def self.from_string(id, info_str)
     info = info_str.split(", ")
     initials = info[0]
     git = info[1]
@@ -25,6 +25,9 @@ class StudentShort < Person
     "ID: #{@id}, ФИО: #{@initials}, Git: #{@git}, Contact: #{@contact}"
   end
 
+  def validate
+    has_git? || has_contact?
+  end
   private_class_method :new
 
 end

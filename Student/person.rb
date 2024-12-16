@@ -55,8 +55,11 @@ class Person
       !git.nil?
     end
 
-    def validate
-      raise NotImplementedError, "Метод не реализован в классе Person"
+    def has_contact?
+      !phone.nil? || !email.nil? || !telegram.nil?
     end
-
+    
+    def validate
+      has_git? && has_contact?
+    end
 end

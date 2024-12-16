@@ -71,14 +71,6 @@ class Student < Person
   	@email=email
   end
 
-  def has_contact?
-  	!phone.nil? || !email.nil? || !telegram.nil?
-  end
-
-  def validate
-  	has_git? && has_contact?
-  end
-
   def set_contacts(phone: nil, telegram: nil, email: nil)
     if phone && !Student.valid_phone?(phone)
       raise ArgumentError, "Некорректный номер телефона"
@@ -114,7 +106,7 @@ class Student < Person
   end
 
   # Основной метод getInfo
-  def getInfo
+  def get_info
     "#{surname_with_initials}, #{git}, #{primary_contact}"
   end
 
