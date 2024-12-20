@@ -30,4 +30,8 @@ def elements_between_first_and_second_max(arr)
     evens.min
   end
   
-  
+  # Метод для нахождения всех простых делителей числа, с учетом кратности
+  def prime_factors(number)
+    require 'prime'
+    Prime.prime_division(number).flat_map { |factor, power| [factor] * power }
+  end
