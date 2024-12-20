@@ -11,4 +11,17 @@ def elements_between_first_and_second_max(arr)
     arr[(start + 1)...finish]
   end
   
+  # Метод для нахождения элементов между первым и последним максимальными
+  def elements_between_first_and_last_max(arr)
+    return [] if arr.empty?
+  
+    max_val = arr.max
+    first_index = arr.index(max_val)
+    last_index = arr.rindex(max_val)
+  
+    start, finish = [first_index, last_index].sort
+  
+    arr[(start + 1)...finish]
+  end
+  
   
