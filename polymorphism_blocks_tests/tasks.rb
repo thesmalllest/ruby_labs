@@ -24,4 +24,10 @@ def elements_between_first_and_second_max(arr)
     arr[(start + 1)...finish]
   end
   
+  # Метод для нахождения минимального четного элемента
+  def minimum_even_element(arr)
+    evens = arr.select(&:even?)
+    evens.min
+  end
+  
   
