@@ -33,6 +33,15 @@ class ArrayProcessor
     end
     return sum
  end
- 
+
+ def member?(&block)
+    @array.each do |element|
+        if yield element
+            return true
+        end
+    end
+    return false
+ end
+
 end
 
