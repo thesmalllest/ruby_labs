@@ -11,3 +11,6 @@ puts array.sum {|n| !n.even?} # =>9
 
 puts array.member? {|n| n == 7} # => false
 puts array.member? {|n| n == 1} # => true
+
+puts array.filter {|n| n.even?} # => 2
+                                # => 4

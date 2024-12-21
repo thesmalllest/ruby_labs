@@ -43,5 +43,15 @@ class ArrayProcessor
     return false
  end
 
+ def filter(&block)
+    collection = []
+    @array.each do |element|
+        if yield element
+            collection << element
+        end
+    end
+    return collection
+ end
+
 end
 
