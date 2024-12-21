@@ -6,3 +6,5 @@ puts array.include? {|n| n.even?}
 
 puts array.reduce(1) {|acc, elem| acc * elem}
 puts array.reduce(10) {|acc, elem| acc + elem}
+
+puts array.sum {|n| !n.even?}

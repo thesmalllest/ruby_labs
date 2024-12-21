@@ -23,5 +23,16 @@ class ArrayProcessor
     end
     return accumulator			
  end
+
+ def sum(&block)
+    sum = 0
+    @array.each do |element|
+        if yield element
+            sum += element
+        end
+    end
+    return sum
+ end
+ 
 end
 
