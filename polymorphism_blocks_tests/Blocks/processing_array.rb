@@ -53,5 +53,22 @@ class ArrayProcessor
     return collection
  end
 
+ def chunk(&block)
+    result = []
+    current_key = nil
+    current_chunk = []
+
+    @array.each do |element|
+      key = yield(element)
+      if key != current_key
+        result << [current_key, current_chunk] unless current_chunk.empty?
+        current_key = key
+        current_chunk = []
+      end
+      current_chunk << element
+    end
+    result << [current_key, current_chunk] unless current_chunk.empty?
+    result
+ end
 end
 

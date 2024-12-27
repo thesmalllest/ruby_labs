@@ -14,3 +14,7 @@ puts array.member? {|n| n == 1} # => true
 
 puts array.filter {|n| n.even?} # => 2
                                 # => 4
+                                
+array_for_chunk = ArrayProcessor.new([12,2,3,4,5,7])
+
+puts array_for_chunk.chunk  {|n| n.even?}
