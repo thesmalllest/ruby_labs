@@ -25,9 +25,6 @@ class StudentShort < Person
     "ID: #{@id}, ФИО: #{@initials}, Git: #{@git}, Contact: #{@contact}"
   end
 
-  def validate
-    has_git? || has_contact?
-  end
   private_class_method :new
 
 end
