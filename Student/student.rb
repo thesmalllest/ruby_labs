@@ -42,7 +42,7 @@ class Student < Person
     phone.match(/\A(\+7|8)?\d{10}\z/)
   end
 
-  def phone=(phone)
+  private def phone=(phone)
   	if !phone.nil? && !Student.valid_phone?(phone)
   	  raise ArgumentError, "Некорректный номер телефона"
     end
@@ -53,7 +53,7 @@ class Student < Person
   	telegram.match(/\A[A-Za-z0-9_@]+\z/)
   end
 
-  def telegram=(telegram)
+  private def telegram=(telegram)
   	if !telegram.nil? && !Student.valid_telegram?(telegram)
   	  raise ArgumentError, "Некорректно введен Telegram"
     end
@@ -64,7 +64,7 @@ class Student < Person
   	email.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/)
   end
 
-  def email=(email)
+  private def email=(email)
   	if !email.nil? && !Student.valid_email?(email)
   	  raise ArgumentError, "Некорректно введен Email" 
   	end
