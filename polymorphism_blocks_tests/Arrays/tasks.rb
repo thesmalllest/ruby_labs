@@ -33,5 +33,12 @@
   # Метод для нахождения всех простых делителей числа, с учетом кратности
   def prime_factors(number)
     require 'prime'
-    Prime.prime_division(number).flat_map { |factor, power| [factor] * power }
+    factors = number.prime_division
+  
+    factors.reduce([]) do |result, pair|
+      prime = pair[0]
+      power = pair[1]
+      power.times { result.push(prime) }
+      result
+    end
   end
