@@ -27,30 +27,6 @@ class Person
     @git = git
     end
 
-    def self.valid_surname?(surname)
-      raise NotImplementedError, "Метод не реализован в классе Person"
-    end
-
-    def self.valid_name?(name)
-      raise NotImplementedError, "Метод не реализован в классе Person"
-    end
-
-    def self.valid_patronymic?(patronymic)
-      raise NotImplementedError, "Метод не реализован в классе Person"
-    end
-
-    def self.valid_phone?(phone)
-      raise NotImplementedError, "Метод не реализован в классе Person"
-    end
-
-    def self.valid_telegram?(telegram)
-      raise NotImplementedError, "Метод не реализован в классе Person"
-    end
-
-    def self.valid_email?(email)
-      raise NotImplementedError, "Метод не реализован в классе Person"
-    end
-
     def has_git?
       !git.nil?
     end

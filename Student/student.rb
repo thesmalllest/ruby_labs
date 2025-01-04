@@ -91,7 +91,7 @@ class Student < Person
     "ID: #{id}, ФИО: #{surname} #{name} #{patronymic}, Телефон: #{phone}, Telegram: #{telegram}, Email: #{email}, Git: #{git}"
   end
 
-  def surname_with_initials
+  def initials
     "#{surname} #{name[0]}.#{patronymic[0]}."
   end
 
@@ -107,7 +107,7 @@ class Student < Person
 
   # Основной метод getInfo
   def get_info
-    "#{surname_with_initials}, #{git}, #{primary_contact}"
+    "#{initials}, #{git}, #{primary_contact}"
   end
 
 end
