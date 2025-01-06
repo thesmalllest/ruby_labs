@@ -95,7 +95,7 @@ class Student < Person
     "#{surname} #{name[0]}.#{patronymic[0]}."
   end
 
-  def primary_contact
+  def contact
     if !phone.nil?
       "Телефон: #{phone}"
     elsif !telegram.nil?
@@ -103,6 +103,10 @@ class Student < Person
     else !email.nil?
       "Email: #{email}"
     end
+  end
+
+  def has_contact?
+    !phone.nil? || !email.nil? || !telegram.nil?
   end
 
   # Основной метод getInfo

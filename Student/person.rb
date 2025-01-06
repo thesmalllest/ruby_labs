@@ -27,12 +27,20 @@ class Person
     @git = git
     end
 
+    def contact
+      raise NotImplementedError, "Метод должен быть реализован в дочернем классе"
+    end
+
+    def initials
+      raise NotImplementedError, "Метод должен быть реализован в дочернем классе"
+    end
+
     def has_git?
       !git.nil?
     end
 
     def has_contact?
-      !phone.nil? || !email.nil? || !telegram.nil?
+      raise NotImplementedError, "Метод должен быть реализован в дочернем классе"
     end
     
     def validate
