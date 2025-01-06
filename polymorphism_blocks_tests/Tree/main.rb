@@ -20,9 +20,13 @@ puts "\nМетод count с условием (имя div): #{tree.count { |x| x.
 
 puts "\nМетод has_children для всех элементов дерева: "
 tree.each { |node| puts "#{node.name}: #{node.has_children?}" }
+puts "\nМетод count_children для корневого узла: #{tree.root.count_children}"
 
 puts "\nДети корневого узла:"
 tree.root.children.each { |child| puts child.tag_info }
+
+puts "\nМетод has_children для всех элементов дерева: "
+tree.each { |node| puts "#{node.name}: #{node.has_children?}" }
 
 puts "\nВывод всех элементов дерева с помощью обхода в глубину: "
 tree.each { |node| puts node.tag_info }
