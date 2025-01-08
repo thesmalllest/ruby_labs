@@ -5,17 +5,14 @@ class HtmlTree
 
   attr_reader :root
 
-  # Инициализация дерева
   def initialize(html_string)
     @root = parse_html(html_string)
   end
 
-  # Обход в глубину (используется Enumerable)
   def each(&block)
     dfs(@root, &block)
   end
 
-  # Обход в ширину
   def bfs(&block)
     bfs_traversal(@root, &block)
   end
