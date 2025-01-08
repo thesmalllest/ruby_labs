@@ -50,7 +50,7 @@ class HtmlTree
 
   # Разбиение строки HTML на токены
   def tokenize(html_string)
-    html_string.scan(/<[^>]+>|[^<]+/).map(&:strip).reject(&:empty?)
+    html_string.scan(/<[^>]+>|[^<]+/)
   end
 
   # Построение дерева из токенов
