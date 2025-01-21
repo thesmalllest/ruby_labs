@@ -23,5 +23,9 @@ class DataTable
     def column_count
       @data.first.size
     end
-  
+    
+    def to_s 
+      @data.inspect
+    end
+
   end
