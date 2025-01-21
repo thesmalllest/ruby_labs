@@ -6,7 +6,7 @@ class DataListStudentShort < DataList
 
   private
 
-  def get_names_of_attributes_of_object
+  def get_names_of_attributes
     ['№', 'Фамилия И.О.', 'Git', 'Контакт']
   end
 
