@@ -1,4 +1,5 @@
 class DataList
+    
     private attr_reader :data, :selected
   
     def initialize(data)
