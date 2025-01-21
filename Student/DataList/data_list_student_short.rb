@@ -1,4 +1,5 @@
 require_relative 'data_list'
+
 require_relative 'data_table'
 
 class DataListStudentShort < DataList
