@@ -7,19 +7,19 @@ class Animal
     end
   
     def wake_up
-      puts "Просыпается"
+      puts "Просыпается."
     end
   
     def sleep
-      puts "Ложится спать"
+      puts "Ложится спать."
     end
   
     def make_sound
-      raise NotImplementedError, "Этот метод должен быть определён в подклассе"
+      raise NotImplementedError, "Этот метод должен быть определён в подклассе."
     end
   
     def eat
-      raise NotImplementedError, "Этот метод должен быть определён в подклассе"
+      raise NotImplementedError, "Этот метод должен быть определён в подклассе."
     end
   end
 
@@ -29,7 +29,7 @@ class Animal
     end
   
     def eat
-      puts "Ест рыбу"
+      puts "Ест рыбу."
     end
   end
 
@@ -39,7 +39,7 @@ class Animal
     end
   
     def eat
-      puts "Ест кость"
+      puts "Ест кость."
     end
   end
   
