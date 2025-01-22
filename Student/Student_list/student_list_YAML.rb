@@ -1,4 +1,4 @@
-require 'json'
+require 'yaml'
 require_relative '../student'
 require_relative '../student_short'
 require_relative '../DataList/data_list'
