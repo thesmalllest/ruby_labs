@@ -1,5 +1,5 @@
 class DataList
-    
+
     private attr_reader :data, :selected
   
     def initialize(data)
@@ -18,7 +18,7 @@ class DataList
     end
   
     def get_names
-      get_names_of_attributes
+      raise NotImplementedError, 'Метод реализован в наследнике.'
     end
   
     def get_data
@@ -42,11 +42,7 @@ class DataList
   
     private
     
-    def get_row_of_values_of_object(index,obj)
-      raise NotImplementedError, 'Метод реализован в наследнике.'
-    end
-    
-    def get_names_of_attributes_of_object
+    def get_row_of_values(index,obj)
       raise NotImplementedError, 'Метод реализован в наследнике.'
     end
     
