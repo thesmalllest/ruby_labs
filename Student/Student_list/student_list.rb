@@ -1,13 +1,17 @@
 require_relative '../student'
 require_relative '../student_short'
 require_relative '../DataList/data_list'
+require_relative '../DataList/data_list_student_short'
+require_relative 'student_list_JSON'
+require_relative 'student_list_YAML'
 
 class StudentList
 
-    attr_accessor :file_path 
+    attr_accessor :file_path, :strategy
     attr_reader :students
   
-    def initialize(file_path:, students:)
+    def initialize(file_path:, strategy:)
+      @strategy = strategy  
       @file_path = file_path
       self.students = []
     end
@@ -20,11 +24,11 @@ class StudentList
     end
   
     def load_students
-      NotImplementedError, 'Метод реализован в наследнике.'
+      self.students = @strategy.load_students(@file_path)
     end
-  
+    
     def save_students
-      NotImplementedError, 'Метод реализован в наследнике.'
+        @strategy.save_students(@file_path, self.students)
     end
   
     def get_student_by_id(id)
@@ -43,7 +47,7 @@ class StudentList
       data_list
     end
   
-    def sort_by_surname_initials
+    def sort_by_initials
       @students.sort_by! { |student| student.initials }
     end
   
@@ -55,7 +59,7 @@ class StudentList
           name: student.name,
           patronymic: student.patronymic,
           phone: student.phone,
-          telegram: student.telegram
+          telegram: student.telegram,
           email: student.email,
           git: student.git
       )
@@ -77,5 +81,6 @@ class StudentList
     def get_student_short_count
       @students.size
     end
-  end
+    
+end
   

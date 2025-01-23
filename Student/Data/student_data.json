@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "surname": "Есенин",
+    "name": "Сергей",
+    "patronymic": "Александрович",
+    "phone": "+79231233242",
+    "telegram": "@sergey_esenin",
+    "email": "sergey.esenin@example.com",
+    "git": "https://github.com/eseninss"
+  },
+  {
+    "id": 2,
+    "surname": "Пушкин",
+    "name": "Александр",
+    "patronymic": "Сергеевич",
+    "phone": "+79161234567",
+    "telegram": "@a_pushkin",
+    "email": "alex.pushkin@example.com",
+    "git": "https://github.com/pushkinalex"
+  },
+  {
+    "id": 3,
+    "surname": "Толстой",
+    "name": "Лев",
+    "patronymic": "Николаевич",
+    "phone": "+79876543210",
+    "telegram": "@lev_tolstoy",
+    "email": "lev.tolstoy@example.com",
+    "git": "https://github.com/tolstoyln"
+  }
+]

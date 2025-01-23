@@ -1,34 +1,36 @@
+require_relative 'file_strategy'
 require 'yaml'
-require_relative '../student'
-require_relative '../student_short'
-require_relative '../DataList/data_list'
-require_relative 'student_list'
 
-class StudentListYAML < StudentList
-  
-    def load_students
-      if File.exist?(self.file_path)
-        file = File.read(self.file_path)
-        student_data = YAML.safe_load(file, symbolize_names: true)
-        self.students = student_data.map { |data| Student.new(**data) }
-      else
-        self.students = []
-      end
+class StudentListYAML < FileStrategy
+
+    def load_students(file_path)
+        if File.exist?(file_path)
+          file = File.read(file_path)
+          student_data = YAML.safe_load(file, permitted_classes: [Symbol], symbolize_names: true)
+          student_data.map { |student_hash| Student.new(**student_hash) }
+        else
+          []
+        end
     end
-  
-    def save_students
-      data = self.students.map { |student| {
+      
+
+  def save_students(file_path, student_data)
+    data = student_data.map do |student| 
+      {
         id: student.id,
         surname: student.surname,
         name: student.name,
         patronymic: student.patronymic,
         phone: student.phone,
-        telegram: student.telegram
+        telegram: student.telegram,
         email: student.email,
         git: student.git
-      }}
-      File.write(file_path, YAML.dump(data))
+      }
     end
-  
- end
-  
+
+    File.open(file_path, 'w') do |file|
+      file.write(YAML.dump(data))
+    end
+  end
+
+end

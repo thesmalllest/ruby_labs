@@ -1,34 +1,34 @@
+require_relative 'file_strategy'
 require 'json'
-require_relative '../student'
-require_relative '../student_short'
-require_relative '../DataList/data_list'
-require_relative 'student_list'
 
-class StudentListJSON < StudentList 
+class StudentListJSON < FileStrategy 
 
-  def load_students
-    if File.exist?(self.file_path)
-      file = File.read(self.file_path)
+  def load_students(file_path)
+    if File.exist?(file_path)
+      file = File.read(file_path)
       student_data = JSON.parse(file, symbolize_names: true)
-      self.students = student_data.map { |data| Student.new(**data) }
+      student_data.map { |student_hash| Student.new(**student_hash) }
     else
-      self.students = []
+      []
     end
   end
 
-  def save_students
-    data = self.students.map { |student| {
-      id: student.id,
-      surname: student.surname,
-      name: student.name,
-      patronymic: student.patronymic,
-      phone: student.phone,
-      telegram: student.telegram
-      email: student.email,
-      git: student.git
-    }}
-    File.write(file_path, JSON.pretty_generate(data))
+  def save_students(file_path, student_data)
+    data = student_data.map do |student| 
+      {
+        id: student.id,
+        surname: student.surname,
+        name: student.name,
+        patronymic: student.patronymic,
+        phone: student.phone,
+        telegram: student.telegram,
+        email: student.email,
+        git: student.git
+      }
+    end
+    File.open(file_path, 'w') do |file|
+      file.write(JSON.pretty_generate(data))
+    end
   end
 
 end
-  
