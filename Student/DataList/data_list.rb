@@ -27,7 +27,7 @@ class DataList
       selected = self.get_selected
       selected.each do |index|
         obj = @data[index]
-        row = get_row_of_values_of_object(index, obj)
+        row = get_row_of_values(index, obj)
         data.append(row)
       end
       DataTable.new(data)
@@ -42,7 +42,7 @@ class DataList
   
     private
     
-    def get_row_of_values(index,obj)
+    def get_row_of_values(index, student_short)
       raise NotImplementedError, 'Метод реализован в наследнике.'
     end
     
