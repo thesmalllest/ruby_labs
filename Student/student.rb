@@ -1,6 +1,9 @@
 require_relative 'person'
 
 class Student < Person
+
+  include Comparable
+  
   attr_reader :surname, :name, :patronymic, :phone, :telegram, :email
 
   def initialize(surname:, name:, patronymic:, id: nil, phone: nil, telegram: nil, email: nil, git: nil)
@@ -112,6 +115,15 @@ class Student < Person
   # Основной метод getInfo
   def get_info
     "#{initials}, #{git}, #{primary_contact}"
+  end
+
+  def ==(other)
+    return false unless other.is_a?(Student)
+  
+    (self.email && self.email == other.email) || 
+    (self.phone && self.phone == other.phone) || 
+    (self.telegram && self.telegram == other.telegram) || 
+    (self.git && self.git == other.git)
   end
 
 end
