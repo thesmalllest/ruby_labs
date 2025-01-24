@@ -15,30 +15,36 @@ class Student < Person
   end
 
   def self.valid_surname?(surname)
+    return false if surname.nil?
     surname.match(/\A[А-Яа-яA-Za-z]+\z/)
   end
 
   def surname=(surname)
-  	raise ArgumentError, "Некорректно введена фамилия" if !Student.valid_surname?(surname)
-  	@surname=surname
+    raise ArgumentError, "Фамилия не может быть пустой" if surname.nil?
+    raise ArgumentError, "Некорректно введена фамилия" unless Student.valid_surname?(surname)
+    @surname = surname
   end
 
   def self.valid_name?(name)
+    return false if name.nil?
     name.match(/\A[А-Яа-яA-Za-z]+\z/)
   end
 
   def name=(name)
-  	raise ArgumentError, "Некорректно введено имя" if !Student.valid_name?(name)
-  	@name=name
+    raise ArgumentError, "Имя не может быть пустым" if name.nil?
+    raise ArgumentError, "Некорректно введено имя" unless Student.valid_name?(name)
+    @name = name
   end
 
   def self.valid_patronymic?(patronymic)
+    return false if patronymic.nil?
     patronymic.match(/\A[А-Яа-яA-Za-z]+\z/)
   end
 
   def patronymic=(patronymic)
-  	raise ArgumentError, "Некорректно введена фамилия" if !Student.valid_patronymic?(patronymic)
-  	@patronymic=patronymic
+    raise ArgumentError, "Отчество не может быть пустым" if patronymic.nil?
+    raise ArgumentError, "Некорректно введено отчество" unless Student.valid_patronymic?(patronymic)
+    @patronymic = patronymic
   end
 
   def self.valid_phone?(phone)
@@ -53,7 +59,7 @@ class Student < Person
   end
 
   def self.valid_telegram?(telegram)
-  	telegram.match(/\A[A-Za-z0-9_@]+\z/)
+    telegram.match(/\A[A-Za-z0-9_@]+\z/)
   end
 
   private def telegram=(telegram)
@@ -64,7 +70,7 @@ class Student < Person
   end
 
   def self.valid_email?(email)
-  	email.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/)
+    email.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/)
   end
 
   private def email=(email)
