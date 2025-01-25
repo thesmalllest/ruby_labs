@@ -7,8 +7,8 @@ class Person
   end
 
   def self.valid_id?(id)
-      id > 0 && id.is_a?(Integer)
-    end
+    id.nil? || (id.is_a?(Integer) && id > 0)
+  end
 
     def id=(id)
       raise ArgumentError, "Некорректный ID" if !Student.valid_id?(id)
