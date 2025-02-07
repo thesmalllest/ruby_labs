@@ -21,12 +21,12 @@
   },
   {
     "id": 3,
-    "surname": "Толстой",
-    "name": "Лев",
-    "patronymic": "Николаевич",
-    "phone": "+79876543210",
-    "telegram": "@lev_tolstoy",
-    "email": "lev.tolstoy@example.com",
-    "git": "https://github.com/tolstoyln"
+    "surname": "Пушкин",
+    "name": "Александр",
+    "patronymic": "Сергеевич",
+    "phone": "+79161234567",
+    "telegram": "@a_pushkin",
+    "email": "alex.pushkin@example.com",
+    "git": "https://github.com/pushkinalex"
   }
 ]

@@ -1,13 +1,13 @@
 require 'pg'
 require_relative './db_connection'
-require_relative '../student'
-require_relative '../student_short'
+require_relative '../Models/student'
+require_relative '../Models/student_short'
 require_relative '../DataList/data_list'
 require_relative '../DataList/data_list_student_short'
 
 class StudentsListDB
   def initialize
-    @db = DBConnection.instance 
+    @db = DBConnection.instance
   end
 
   def get_student_by_id(id)

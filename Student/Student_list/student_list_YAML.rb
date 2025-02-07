@@ -12,7 +12,6 @@ class StudentListYAML < FileStrategy
           []
         end
     end
-      
 
   def save_students(file_path, student_data)
     data = student_data.map do |student| 

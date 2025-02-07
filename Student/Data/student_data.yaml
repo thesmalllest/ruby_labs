@@ -1,25 +1,225 @@
 ---
 - :id: 1
-  :surname: Есенин
-  :name: Сергей
-  :patronymic: Александрович
-  :phone: "+79231233242"
-  :telegram: "@sergey_esenin"
-  :email: sergey.esenin@example.com
-  :git: https://github.com/eseninss
-- :id: 2
-  :surname: Пушкин
-  :name: Александр
+  :surname: Иванов
+  :name: Петр
   :patronymic: Сергеевич
-  :phone: "+79161234567"
-  :telegram: "@a_pushkin"
-  :email: alex.pushkin@example.com
-  :git: https://github.com/pushkinalex
+  :phone: "+79151234567"
+  :telegram: "@petr_ivanov"
+  :email: petr.ivanov@example.com
+  :git: https://github.com/petrivanov
+
+- :id: 2
+  :surname: Смирнов
+  :name: Алексей
+  :patronymic: Викторович
+  :phone: "+79263334455"
+  :telegram: "@alex_smirnov"
+  :email: alex.smirnov@example.com
+  :git: https://github.com/alexsmirnov
+
 - :id: 3
-  :surname: Толстой
-  :name: Лев
+  :surname: Кузнецов
+  :name: Дмитрий
+  :patronymic: Олегович
+  :phone: "+79374445566"
+  :telegram: "@dmitry_kuznetsov"
+  :email: dmitry.kuznetsov@example.com
+  :git: https://github.com/dmitrykuznetsov
+
+- :id: 4
+  :surname: Соколов
+  :name: Антон
+  :patronymic: Валерьевич
+  :phone: "+79485556677"
+  :telegram: "@anton_sokolov"
+  :email: anton.sokolov@example.com
+  :git: https://github.com/antonsokolov
+
+- :id: 5
+  :surname: Попов
+  :name: Евгений
+  :patronymic: Артемович
+  :phone: "+79596667788"
+  :telegram: "@evgeny_popov"
+  :email: evgeny.popov@example.com
+  :git: https://github.com/evgenypopov
+
+- :id: 6
+  :surname: Лебедев
+  :name: Михаил
   :patronymic: Николаевич
-  :phone: "+79876543210"
-  :telegram: "@lev_tolstoy"
-  :email: lev.tolstoy@example.com
-  :git: https://github.com/tolstoyln
+  :phone: "+79697778899"
+  :telegram: "@mikhail_lebedev"
+  :email: mikhail.lebedev@example.com
+  :git: https://github.com/mikhaillebedev
+
+- :id: 7
+  :surname: Козлов
+  :name: Артем
+  :patronymic: Григорьевич
+  :phone: "+79798889900"
+  :telegram: "@artem_kozlov"
+  :email: artem.kozlov@example.com
+  :git: https://github.com/artemkozlov
+
+- :id: 8
+  :surname: Новиков
+  :name: Андрей
+  :patronymic: Сергеевич
+  :phone: "+79899990011"
+  :telegram: "@andrey_novikov"
+  :email: andrey.novikov@example.com
+  :git: https://github.com/andreynovikov
+
+- :id: 9
+  :surname: Морозов
+  :name: Виктор
+  :patronymic: Дмитриевич
+  :phone: "+79991112233"
+  :telegram: "@victor_morozov"
+  :email: victor.morozov@example.com
+  :git: https://github.com/victormorozov
+
+- :id: 10
+  :surname: Петров
+  :name: Денис
+  :patronymic: Алексеевич
+  :phone: "+79112223344"
+  :telegram: "@denis_petrov"
+  :email: denis.petrov@example.com
+  :git: https://github.com/denispetrov
+
+- :id: 11
+  :surname: Волков
+  :name: Роман
+  :patronymic: Викторович
+  :phone: "+79223334455"
+  :telegram: "@roman_volkov"
+  :email: roman.volkov@example.com
+  :git: https://github.com/romanvolkov
+
+- :id: 12
+  :surname: Зайцев
+  :name: Павел
+  :patronymic: Андреевич
+  :phone: "+79334445566"
+  :telegram: "@pavel_zaytsev"
+  :email: pavel.zaytsev@example.com
+  :git: https://github.com/pavelzaytsev
+
+- :id: 13
+  :surname: Васильев
+  :name: Игорь
+  :patronymic: Евгеньевич
+  :phone: "+79445556677"
+  :telegram: "@igor_vasilev"
+  :email: igor.vasilev@example.com
+  :git: https://github.com/igorvasilev
+
+- :id: 14
+  :surname: Федоров
+  :name: Николай
+  :patronymic: Васильевич
+  :phone: "+79556667788"
+  :telegram: "@nikolay_fedorov"
+  :email: nikolay.fedorov@example.com
+  :git: https://github.com/nikolayfedorov
+
+- :id: 15
+  :surname: Михайлов
+  :name: Глеб
+  :patronymic: Анатольевич
+  :phone: "+79667778899"
+  :telegram: "@gleb_mikhailov"
+  :email: gleb.mikhailov@example.com
+  :git: https://github.com/glebmikhailov
+
+- :id: 16
+  :surname: Титов
+  :name: Олег
+  :patronymic: Юрьевич
+  :phone: "+79778889900"
+  :telegram: "@oleg_titov"
+  :email: oleg.titov@example.com
+  :git: https://github.com/olegtitov
+
+- :id: 17
+  :surname: Орлов
+  :name: Станислав
+  :patronymic: Олегович
+  :phone: "+79889990011"
+  :telegram: "@stanislav_orlov"
+  :email: stanislav.orlov@example.com
+  :git: https://github.com/stanislavorlov
+
+- :id: 18
+  :surname: Андреев
+  :name: Тимур
+  :patronymic: Константинович
+  :phone: "+79991112233"
+  :telegram: "@timur_andreev"
+  :email: timur.andreev@example.com
+  :git: https://github.com/timurandreev
+
+- :id: 19
+  :surname: Киселев
+  :name: Василий
+  :patronymic: Тимофеевич
+  :phone: "+79448887766"
+  :telegram: "@vasily_kiselev"
+  :email: vasily.k@example.com
+  :git: https://github.com/kiselevv
+
+- :id: 20
+  :surname: Павлова
+  :name: Юлия
+  :patronymic: Владиславовна
+  :phone: "+79087776655"
+  :telegram: "@yulia_pavlova"
+  :email: yulia.p@example.com
+  :git: https://github.com/pavlovay
+
+- :id: 21
+  :surname: Никитин
+  :name: Илья
+  :patronymic: Сергеевич
+  :phone: "+79854443322"
+  :telegram: "@ilya_nikitin"
+  :email: ilya.n@example.com
+  :git: https://github.com/nikitini
+
+- :id: 22
+  :surname: Григорьева
+  :name: Полина
+  :patronymic: Артемовна
+  :phone: "+79225554433"
+  :telegram: "@polina_grigoryeva"
+  :email: polina.g@example.com
+  :git: https://github.com/grigoryevap
+
+- :id: 23
+  :surname: Васильев
+  :name: Константин
+  :patronymic: Олегович
+  :phone: "+79339998822"
+  :telegram: "@konstantin_vasiliev"
+  :email: konstantin.v@example.com
+  :git: https://github.com/vasilievk
+
+- :id: 24
+  :surname: Тимофеев
+  :name: Сергей
+  :patronymic: Романович
+  :phone: "+79985553344"
+  :telegram: "@sergey_timofeev"
+  :email: sergey.t@example.com
+  :git: https://github.com/timofeevs
+
+- :id: 25
+  :surname: Королев
+  :name: Владислав
+  :patronymic: Михайлович
+  :phone: "+79553334422"
+  :telegram: "@vladislav_korolev"
+  :email: vladislav.k@example.com
+  :git: https://github.com/korolevv

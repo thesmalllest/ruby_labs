@@ -1,8 +1,6 @@
 require_relative 'person'
 
 class Student < Person
-
-  include Comparable
   
   attr_reader :surname, :name, :patronymic, :phone, :telegram, :email
 

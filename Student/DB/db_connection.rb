@@ -4,7 +4,7 @@ class DBConnection
   DEFAULT = {
     dbname: 'StudentsDataBase',
     user: 'postgres',
-    password: '123', 
+    password: '123',
     host: 'localhost',
     port: 5432
   }.freeze
