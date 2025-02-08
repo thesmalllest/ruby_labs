@@ -11,7 +11,7 @@ class Person
   end
 
   def id=(id)
-    raise ArgumentError, "Некорректный ID" if !Student.valid_id?(id)
+    raise ArgumentError, "Некорректный ID" if !Person.valid_id?(id)
     @id=id
   end
 
@@ -21,7 +21,7 @@ class Person
 
   #Только если git не является nil, будет выполняться проверка valid_git?.
   def git=(git)
-    if !git.nil? && !Student.valid_git?(git)
+    if !git.nil? && !Person.valid_git?(git)
       raise ArgumentError, "Некорректно введен Git"
     end
     @git = git

@@ -22,7 +22,6 @@ class StudentsListController
     students = @students_list.get_k_n_student_short_list(@view.current_page, @view.students_per_page)
     @data_list.data = students.data
     @data_list.count = @students_list.get_student_short_count
-    @data_list.offset = (@view.current_page - 1) * @view.students_per_page
     @data_list.notify
   end
 

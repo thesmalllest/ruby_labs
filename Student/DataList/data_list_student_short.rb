@@ -20,10 +20,11 @@ class DataListStudentShort < DataList
 
   def notify
     @observers.each do |observer|
-      observer.set_table_params(get_names, @count) # Устанавливаем заголовки столбцов
-      observer.set_table_data(get_data) # Устанавливаем данные таблицы
+      observer.set_table_params(get_names, @count)
+      observer.set_table_data(get_data)
     end
   end
+
   def get_names
     ['№', 'Фамилия И.О.', 'Git', 'Контакт']
   end
